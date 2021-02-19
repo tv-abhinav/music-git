@@ -1,0 +1,22 @@
+version: "3"
+services: 
+  frontend:
+    container_name: musicgit_web
+    build: 
+      context: ./client
+      dockerfile: Dockerfile
+    image: tvabhinav97/musicgit_web
+    ports: 
+      - "3000:3000"
+    volumes: 
+      - ./client:/usr/src/app
+  backend:
+    container_name: musicgit_server
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    image: tvabhinav97/musicgit_server
+    ports:
+      - "5000:5000"
+    volumes: 
+      - ./server:/usr/src/app
